@@ -1,13 +1,184 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /*=== === ===theme colors=== === ===*/
+  --ligth-color: #d6d6d6;
+  --white-color: #fff;
+  --yellow-color: #ffe459;
+  --link-color: #f43b86;
+  --dark-purple: #3d087b;
+  --text-color: #11052c;
+  --purple-color: #6c63ff;
+  --box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.16);
+  --box-shadow-inner: 3px 3px 8px rgba(0, 0, 0, 0.16) inset;
+
+  /*=== === ===spacing=== === ===*/
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+  --mb-5: 5rem;
+
+  /*=== === ===Font size and style=== === ===*/
+  --fs-20: 20px;
+  --fs-30: 30px;
+  --fs-35: 35px;
+  --fs-50: 50px;
+  --fs-60: 60px;
+  --fs-80: 80px;
+
+  /*=== === ===Font weight=== === ===*/
+  --fw-300: 300;
+  --fw-500: 500;
+  --fw-semi-bold: 600;
+}
+
+body,
+html {
+  font-family: "Josefin Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/*=== === === layout === === ===*/
+a {
+  text-decoration: none;
+}
+
+.main {
+  margin: 0 var(--mb-5);
+}
+
+.section {
+  min-height: 100vh;
+  position: relative;
+  top: 8vh;
+}
+
+.grid {
+  display: grid;
+  gap: var(--mb-0-5);
+}
+
+p,
+h1,
+h3 {
+  padding: var(--mb-1);
+}
+
+.btn {
+  grid-template-columns: repeat(2, 1fr);
+  width: 480px;
+  margin-top: var(--mb-2);
+}
+
+.button {
+  height: 74px;
+  width: 213px;
+  border-radius: 50px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  font-size: var(--fs-20);
+  text-decoration: none;
+  color: var(--dark-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: var(--box-shadow-inner);
+  color: var(--link-color);
+}
+
+.col {
+  min-height: 90vh;
+}
+
+/*=== === === Navigation bar === === ===*/
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+  background: var(--white-color);
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.logo {
+  width: 50px;
+}
+
+.menu_list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-20);
+  width: 33%;
+}
+
+/*=== === === Home section === === ===*/
+.home_section {
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+}
+
+.home_section p {
+  font-size: var(--fs-30);
+  color: var(--dark-purple);
+}
+
+.home_section p:nth-child(2) {
+  font-size: var(--fs-50);
+  font-weight: var(--fw-300);
+}
+
+.home_section h1 {
+  font-size: var(--fs-80);
+  color: var(--dark-purple);
+}
+
+.home_section .animation {
+  width: 677px;
+  height: 374px;
+  background: linear-gradient(
+    to top left,
+    var(--dark-purple),
+    var(--link-color)
+  );
+  position: relative;
+  top: 80px;
+  border-radius: 10px;
+}
+
+.stroke {
+  position: absolute;
+  z-index: -1;
+  top: 275px;
+  left: 36px;
+}
+
+.stroke:nth-child(2) {
+  position: absolute;
+  left: 284px;
+}
+
+.red{
+  color: red;
 }

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="81.99" height="81.221" viewBox="0 0 81.99 81.221">
+    <g id="Logo" transform="translate(8.803 7.221)">
+        <path id="Path_34" data-name="Path 34" d="M-5.736,68.643S18.977,75.34,42.9,51.819,70.428-4.463,70.428-4.463" fill="none" stroke="#f43b86" stroke-linecap="round" stroke-width="5"/>
+        <g id="Ellipse_12" data-name="Ellipse 12" fill="none" stroke="#6c63ff" stroke-width="5">
+            <ellipse cx="36.5" cy="37" rx="36.5" ry="37" stroke="none"/>
+            <ellipse cx="36.5" cy="37" rx="34" ry="34.5" fill="none"/>
+        </g>
+        <text id="WT" transform="translate(8 51)" fill="#6c63ff" font-size="37" font-family="SegoeUI, Segoe UI" letter-spacing="0.04em"><tspan x="0" y="0">WT</tspan></text>
+    </g>
+</svg>

@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.firebase/
+.firebaserc
+.idea/prettier.xml
+.idea/vcs.xml
+firebase.json

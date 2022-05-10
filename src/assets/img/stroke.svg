@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="126.96" height="153.181" viewBox="0 0 126.96 153.181">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 5px;
+      }
+
+      .cls-1 {
+        stroke: #f43b86;
+      }
+
+      .cls-2 {
+        stroke: #ffe459;
+      }
+    </style>
+  </defs>
+  <g id="stroke" transform="translate(-225.02 -644.41)">
+    <path id="Path_32" data-name="Path 32" class="cls-1" d="M240.657,1263.612l80.1-143" transform="translate(-12.235 -472.795)"/>
+    <path id="Path_33" data-name="Path 33" class="cls-2" d="M240.657,1263.612l80.1-143" transform="translate(27.817 -469.425)"/>
+  </g>
+</svg>
