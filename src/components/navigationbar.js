@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/img/logo.svg";
+import { NavLink } from "react-router-dom";
 
 function Navigationbar() {
   return (
@@ -10,7 +11,10 @@ function Navigationbar() {
         </a>
         <ul className="menu_list">
           <li>
-            <a href="#">Blogs</a>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/blogs">Blogs</NavLink>
           </li>
           <li>
             <a href="#">Text Utility</a>

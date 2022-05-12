@@ -61,7 +61,7 @@ a {
 .section {
   min-height: 100vh;
   position: relative;
-  top: 8vh;
+  top: 9vh;
 }
 
 .grid {
@@ -113,6 +113,19 @@ h3 {
   font-size: var(--fs-30);
 }
 
+.active {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: var(--box-shadow-inner);
+  color: var(--link-color);
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 .footer_section {
   min-height: 60vh;
   background: var(--link-color);
@@ -143,7 +156,7 @@ h3 {
 .footer .copyright {
   margin-top: var(--mb-2-5);
   color: #fff;
-  font-size: 18px;
+  font-size: 15px;
   grid-column: 1 / span 3;
   display: flex;
   justify-content: center;
@@ -175,6 +188,10 @@ h3 {
   align-items: center;
   font-size: var(--fs-20);
   width: 33%;
+}
+
+li a {
+  padding: 10px;
 }
 
 /*=== === === Home section === === ===*/
