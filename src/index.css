@@ -82,8 +82,8 @@ h3 {
 }
 
 .button {
-  height: 74px;
-  width: 213px;
+  height: 54px;
+  width: 180px;
   border-radius: 50px;
   background: #fff;
   border: none;
@@ -107,6 +107,49 @@ h3 {
   min-height: 90vh;
 }
 
+.title {
+  color: var(--purple-color);
+  font-weight: var(--fw-500);
+  font-size: var(--fs-30);
+}
+
+.footer_section {
+  min-height: 60vh;
+  background: var(--link-color);
+}
+
+.footer {
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-content: center;
+  height: 60vh;
+}
+
+.footer_link {
+  margin-bottom: var(--mb-0-75);
+  margin-left: var(--mb-0-75);
+  font-size: var(--fs-20);
+}
+
+.footer_link a {
+  color: var(--ligth-color);
+}
+
+.footer h3 {
+  color: var(--white-color);
+  font-size: var(--fs-35);
+}
+
+.footer .copyright {
+  margin-top: var(--mb-2-5);
+  color: #fff;
+  font-size: 18px;
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*=== === === Navigation bar === === ===*/
 .navbar {
   display: flex;
@@ -118,6 +161,7 @@ h3 {
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 100;
 }
 
 .logo {
@@ -170,15 +214,57 @@ h3 {
 .stroke {
   position: absolute;
   z-index: -1;
-  top: 275px;
-  left: 36px;
+  top: 270px;
+  left: 20px;
 }
 
 .stroke:nth-child(2) {
   position: absolute;
-  left: 284px;
+  left: 270px;
 }
 
-.red{
-  color: red;
+.featured_tools {
+  min-height: 90vh;
+  margin-top: var(--mb-1-5);
+}
+
+.featured_tools .main_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--link-color);
+}
+
+.featured_tools .tools_link {
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  min-height: 380px;
+}
+
+.featured_tools .icons {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-inner);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured_tools .cards {
+  height: 323px;
+  width: 344px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: var(--mb-1-5);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.featured_tools .cards:hover {
+  box-shadow: 2px 0 25px rgba(0, 0, 0, 0.2);
 }

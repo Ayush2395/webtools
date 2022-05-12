@@ -27,3 +27,6 @@ yarn-error.log*
 .idea/prettier.xml
 .idea/vcs.xml
 firebase.json
+
+src/backend
+src/.env

@@ -2,9 +2,9 @@ import React from "react";
 import Home from "./page/home";
 import Navigationbar from "./components/navigationbar";
 import { Helmet } from "react-helmet";
+import Footer from "./components/footer";
 
 function App() {
-
   return (
     <>
       <Helmet>
@@ -14,6 +14,7 @@ function App() {
       <div className="main">
         <Home />
       </div>
+      <Footer />
     </>
   );
 }
