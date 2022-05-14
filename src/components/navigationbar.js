@@ -17,7 +17,7 @@ function Navigationbar() {
             <NavLink to="/blogs">Blogs</NavLink>
           </li>
           <li>
-            <a href="#">Text Utility</a>
+            <NavLink to="/textutils">Text Utility</NavLink>
           </li>
           <li>
             <a href="#">Todo</a>

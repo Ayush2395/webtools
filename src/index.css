@@ -56,6 +56,7 @@ a {
 
 .main {
   margin: 0 var(--mb-5);
+  padding: 0 0 var(--mb-5) 0;
 }
 
 .section {
@@ -66,7 +67,10 @@ a {
 
 .grid {
   display: grid;
-  gap: var(--mb-0-5);
+  -webkit-column-gap: var(--mb-0-5);
+  -moz-column-gap: var(--mb-0-5);
+  column-gap: var(--mb-0-5);
+  row-gap: var(--mb-2-5);
 }
 
 p,
@@ -129,6 +133,11 @@ h3 {
 .footer_section {
   min-height: 60vh;
   background: var(--link-color);
+  position: relative;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  margin-top: 120px;
 }
 
 .footer {
@@ -161,6 +170,24 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.banner {
+  width: 100%;
+  height: 145px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  top: 5vh;
+  background: linear-gradient(
+    to top left,
+    var(--purple-color),
+    var(--link-color)
+  );
+  padding: 0 var(--mb-1-5) 0 var(--mb-1-5);
+  font-size: var(--fs-30);
 }
 
 /*=== === === Navigation bar === === ===*/
@@ -269,7 +296,7 @@ li a {
   align-items: center;
 }
 
-.featured_tools .cards {
+.cards {
   height: 323px;
   width: 344px;
   border-radius: 10px;
@@ -282,6 +309,53 @@ li a {
   transition: box-shadow 0.3s ease;
 }
 
-.featured_tools .cards:hover {
+.cards:hover {
   box-shadow: 2px 0 25px rgba(0, 0, 0, 0.2);
+}
+
+/*=== === === Blogs section === === ===*/
+.blogs {
+  position: relative;
+  top: 8vh;
+  margin-top: var(--mb-2-5);
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.blogs .blog_img {
+  width: 150px;
+}
+
+/*=== === === Text Utility === === ===*/
+.input_fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  top: 15vh;
+}
+
+.btn_utils {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: var(--mb-1-5);
+}
+
+textarea {
+  resize: none;
+  width: 680px;
+  border: none;
+  font-family: inherit;
+  border-radius: 10px;
+  padding: var(--mb-1-5);
+  box-shadow: var(--box-shadow-inner);
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -ms-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+textarea:focus {
+  outline: none;
 }

@@ -5,6 +5,7 @@ import Stroke from "../assets/img/stroke.svg";
 import { IoBookSharp } from "react-icons/io5";
 import { RiTextWrap, RiTodoLine } from "react-icons/ri";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 function Home() {
   const defaultOptions = {
@@ -15,6 +16,7 @@ function Home() {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
   return (
     <>
       <div className="section home">
@@ -46,15 +48,15 @@ function Home() {
           </div>
           <div className="grid tools_link">
             <Fade left>
-              <div className="blogs cards">
+              <div className="blog cards">
                 <div className="icons">
                   <IoBookSharp color="var(--purple-color)" size={20} />
                 </div>
                 <h1 className="title">Blogs</h1>
                 <p>Lorem ipsum dolor sit amet.</p>
-                <a href="#" className="button">
+                <Link to="/blogs" className="button">
                   Visit
-                </a>
+                </Link>
               </div>
             </Fade>
             <Fade>
@@ -64,13 +66,13 @@ function Home() {
                 </div>
                 <h1 className="title">Text Utility</h1>
                 <p>Lorem ipsum dolor sit amet.</p>
-                <a href="#" className="button">
+                <Link to="/textutils" className="button">
                   Visit
-                </a>
+                </Link>
               </div>
             </Fade>
             <Fade right>
-              <div className="blogs cards">
+              <div className="todos cards">
                 <div className="icons">
                   <RiTodoLine color="var(--purple-color)" size={20} />
                 </div>

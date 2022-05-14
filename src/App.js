@@ -2,9 +2,10 @@ import React from "react";
 import Home from "./page/home";
 import Navigationbar from "./components/navigationbar";
 import { Helmet } from "react-helmet";
-import Footer from "./components/footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Blogs from "./page/blogs";
+import Footer from "./components/footer";
+import TextUtils from "./page/textUtils";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/textutils" element={<TextUtils />} />
           </Routes>
         </div>
         <Footer />
