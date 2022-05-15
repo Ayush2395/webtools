@@ -45,15 +45,19 @@ function TextUtils() {
           </div>
         </div>
         <div className="input_fields">
-          <textarea
-            name="text"
-            id="text"
-            cols="30"
-            rows="10"
-            placeholder="Type your text here"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
+          <div className="textarea">
+            <textarea
+              placeholder=""
+              className="textarea_input"
+              name="text"
+              id="text"
+              cols="30"
+              rows="10"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+            <label htmlFor="text">Type your text here</label>
+          </div>
           <div className="grid btn_utils">
             <button className="button" onClick={uppercase}>
               Uppercase

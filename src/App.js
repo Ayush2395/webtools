@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Blogs from "./page/blogs";
 import Footer from "./components/footer";
 import TextUtils from "./page/textUtils";
+import Todos from "./page/todos";
+import Login from "./components/login";
+import AppState from "./context/AppState";
 
 function App() {
   return (
@@ -13,17 +16,21 @@ function App() {
       <Helmet>
         <title>Web Tools | Home</title>
       </Helmet>
-      <Router>
-        <Navigationbar />
-        <div className="main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/textutils" element={<TextUtils />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
+      <AppState>
+        <Router>
+          <Navigationbar />
+          <div className="main">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/textutils" element={<TextUtils />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/todos" element={<Todos />} />
+            </Routes>
+          </div>
+          <Footer />
+        </Router>
+      </AppState>
     </>
   );
 }

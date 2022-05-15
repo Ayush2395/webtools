@@ -349,6 +349,7 @@ textarea {
   border-radius: 10px;
   padding: var(--mb-1-5);
   box-shadow: var(--box-shadow-inner);
+  outline: none;
   -webkit-transition: 0.3s ease-out;
   -moz-transition: 0.3s ease-out;
   -ms-transition: 0.3s ease-out;
@@ -356,6 +357,124 @@ textarea {
   transition: 0.3s ease-out;
 }
 
-textarea:focus {
+.textarea {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.textarea label {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: var(--ligth-color);
+  background: #fff;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -ms-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease;
+}
+
+.textarea_input:focus + label {
+  top: -1.8rem;
+  font-size: var(--fs-20);
+  color: var(--link-color);
+}
+
+.textarea_input:not(:placeholder-shown).textarea_input:not(:focus) + label {
+  top: -1.8rem;
+  font-size: var(--fs-20);
+  color: var(--link-color);
+}
+
+/*=== === === Login section === === ===*/
+.login_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_section > .cards {
+  width: 650px;
+  height: 520px;
+  display: block;
+}
+
+.form_group {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: var(--mb-3);
+  width: 100%;
+}
+
+.form_input {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow-inner);
+  color: var(--purple-color);
+  padding: 0 25px;
   outline: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.form_group .form_label {
+  position: absolute;
+  top: 0.8rem;
+  left: 11rem;
+  display: block;
+  margin: 0 auto 0 auto;
+  color: var(--ligth-color);
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.form_input:focus + .form_label {
+  top: -1.5rem;
+  color: var(--link-color);
+}
+
+.form_input:not(:placeholder-shown).form_input:not(:focus) + .form_label {
+  top: -1.5rem;
+  color: var(--link-color);
+}
+
+.form_group .login_btn {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.social {
+  grid-template-columns: repeat(2, 1fr);
+  margin: var(--mb-1) auto;
+  justify-items: center;
+  width: 50%;
+}
+
+.social_media {
+  background: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  box-shadow: var(--box-shadow);
+  border-radius: 50%;
+}
+
+.stroke_line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--mb-1);
+}
+
+.stroke_line hr {
+  width: 25%;
 }

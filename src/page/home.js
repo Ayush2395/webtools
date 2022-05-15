@@ -78,9 +78,9 @@ function Home() {
                 </div>
                 <h1 className="title">Todos</h1>
                 <p>Lorem ipsum dolor sit amet.</p>
-                <a href="#" className="button">
+                <Link to="/todos" className="button">
                   Visit
-                </a>
+                </Link>
               </div>
             </Fade>
           </div>

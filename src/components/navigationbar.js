@@ -20,7 +20,7 @@ function Navigationbar() {
             <NavLink to="/textutils">Text Utility</NavLink>
           </li>
           <li>
-            <a href="#">Todo</a>
+            <NavLink to="/login">Todos</NavLink>
           </li>
           <li>
             <a href="#">About us</a>
