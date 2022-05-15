@@ -219,6 +219,7 @@ h3 {
 
 li a {
   padding: 10px;
+  width: 100px;
 }
 
 /*=== === === Home section === === ===*/
@@ -397,7 +398,7 @@ textarea {
 
 .login_section > .cards {
   width: 650px;
-  height: 520px;
+  height: 540px;
   display: block;
 }
 
@@ -420,6 +421,8 @@ textarea {
   outline: none;
   display: block;
   margin: 0 auto;
+  font-family: inherit;
+  font-size: 15px;
 }
 
 .form_group .form_label {
@@ -453,7 +456,7 @@ textarea {
 }
 
 .social {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: var(--mb-1) auto;
   justify-items: center;
   width: 50%;
@@ -477,4 +480,13 @@ textarea {
 
 .stroke_line hr {
   width: 25%;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+.register_cards {
+  height: 640px !important;
 }

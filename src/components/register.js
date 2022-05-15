@@ -1,76 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { useAppState } from "../context/AppState";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../backend/firebase.config";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillTwitterCircle, AiOutlinePhone } from "react-icons/ai";
+import { useAppState } from "../context/AppState";
 
-function Login() {
+function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const { onAuthStateChanged, loginUser, googleUserLogin, twitterUserLogin } =
-    useAppState();
+  const { registerNewUser } = useAppState();
 
-  async function loginUserByEmail(event) {
+  const registerUser = async (event) => {
     event.preventDefault();
+    if (email === "" || password === "" || ConfirmPassword === "") {
+      return;
+    }
 
-    if (email === "" || password === "") {
+    if (password.length !== ConfirmPassword.length || password.length < 8) {
       return;
     }
 
     try {
-      await loginUser(email, password);
+      await registerNewUser(email, password);
       navigate("/todos");
     } catch (err) {
       console.log(err.message);
     }
-  }
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
-        navigate("/login");
-      } else {
-        navigate("/todos");
-      }
-    });
-  }, []);
-
-  async function googleAuthLogin() {
-    try {
-      await googleUserLogin();
-      navigate("/todos");
-    } catch (err) {
-      console.log(err.message);
-    }
-  }
-  async function twitterLogin() {
-    try {
-      await twitterUserLogin();
-      navigate("/todos");
-    } catch (err) {
-      console.log(err.message);
-    }
-  }
+  };
 
   return (
     <>
       <div className="section login_section">
-        <div className="cards login_card">
-          <h1 className="title">Login to Todos</h1>
-          <form onSubmit={loginUserByEmail} className="form">
+        <div className="cards login_cards register_cards">
+          <h1 className="title">Register User</h1>
+          <form onSubmit={registerUser} className="form">
             <div className="form_group">
               <input
                 type="email"
                 className="form_input"
                 id="email"
                 placeholder=""
+                autoComplete="off"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <label className="form_label" htmlFor="email">
+              <label htmlFor="email" className="form_label">
                 Email
               </label>
             </div>
@@ -83,13 +59,27 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label className="form_label" htmlFor="password">
+              <label htmlFor="email" className="form_label">
                 Password
               </label>
             </div>
             <div className="form_group">
+              <input
+                type="password"
+                className="form_input"
+                id="confirm_password"
+                placeholder=""
+                autoComplete="off"
+                value={ConfirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <label htmlFor="confirm_password" className="form_label">
+                Confirm Password
+              </label>
+            </div>
+            <div className="form_group">
               <button type="submit" className="button login_btn">
-                Login
+                Register
               </button>
             </div>
             <div className="stroke_line">
@@ -97,19 +87,19 @@ function Login() {
               OR <hr />
             </div>
             <div className="social grid">
-              <button onClick={googleAuthLogin} className="social_media button">
+              <button className="social_media button">
                 <FcGoogle size={30} />
               </button>
               <button className="social_media button">
                 <AiOutlinePhone size={30} />
               </button>
-              <button onClick={twitterLogin} className="social_media button">
+              <button className="social_media button">
                 <AiFillTwitterCircle size={30} />
               </button>
             </div>
             <div className="register">
               <p>
-                Don't have an account? <Link to="/register">Register</Link>
+                Already have an account? <Link to="/login">Login</Link>
               </p>
             </div>
           </form>
@@ -119,4 +109,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

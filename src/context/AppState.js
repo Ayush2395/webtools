@@ -5,7 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
-  FacebookAuthProvider,
+  TwitterAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../backend/firebase.config";
@@ -14,6 +14,8 @@ const AppContext = createContext();
 
 function AppState({ children }) {
   const [user, setUser] = useState("");
+
+  const [error, setError] = useState({ error: false, msg: "" });
 
   function registerNewUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -28,8 +30,8 @@ function AppState({ children }) {
     return signInWithPopup(auth, provider);
   }
 
-  function facebookUserLogin() {
-    const provider = new FacebookAuthProvider();
+  function twitterUserLogin() {
+    const provider = new TwitterAuthProvider();
     return signInWithPopup(auth, provider);
   }
 
@@ -45,10 +47,12 @@ function AppState({ children }) {
           registerNewUser,
           loginUser,
           googleUserLogin,
-          facebookUserLogin,
+          twitterUserLogin,
           signOutUser,
           onAuthStateChanged,
           setUser,
+          error,
+          setError,
         }}
       >
         {children}

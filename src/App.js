@@ -9,6 +9,7 @@ import TextUtils from "./page/textUtils";
 import Todos from "./page/todos";
 import Login from "./components/login";
 import AppState from "./context/AppState";
+import Register from "./components/register";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/textutils" element={<TextUtils />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/todos" element={<Todos />} />
             </Routes>
           </div>
