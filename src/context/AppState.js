@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,6 +7,8 @@ import {
   GoogleAuthProvider,
   TwitterAuthProvider,
   signInWithPopup,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
 } from "firebase/auth";
 import { auth } from "../backend/firebase.config";
 
@@ -14,12 +16,13 @@ const AppContext = createContext();
 
 function AppState({ children }) {
   const [user, setUser] = useState("");
-
   const [error, setError] = useState({ error: false, msg: "" });
 
   function registerNewUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
+
+  // Save user details to cloud Storage
 
   function loginUser(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -38,6 +41,24 @@ function AppState({ children }) {
   function signOutUser() {
     return signOut(auth);
   }
+  const phoneSignUp = (number) => {
+    let recaptchaVerifier = new RecaptchaVerifier(
+      "captcha_container",
+      {},
+      auth
+    );
+    recaptchaVerifier.render();
+    return signInWithPhoneNumber(auth, number, recaptchaVerifier);
+  };
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => {
+      unsub();
+    };
+  }, []);
 
   return (
     <>
@@ -50,6 +71,7 @@ function AppState({ children }) {
           twitterUserLogin,
           signOutUser,
           onAuthStateChanged,
+          phoneSignUp,
           setUser,
           error,
           setError,

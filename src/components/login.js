@@ -3,28 +3,40 @@ import { useAppState } from "../context/AppState";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../backend/firebase.config";
 import { FcGoogle } from "react-icons/fc";
-import { AiFillTwitterCircle, AiOutlinePhone } from "react-icons/ai";
+import {
+  AiFillCloseCircle,
+  AiFillTwitterCircle,
+  AiOutlinePhone,
+} from "react-icons/ai";
+import { MdErrorOutline } from "react-icons/md";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const { onAuthStateChanged, loginUser, googleUserLogin, twitterUserLogin } =
-    useAppState();
+  const {
+    onAuthStateChanged,
+    loginUser,
+    googleUserLogin,
+    twitterUserLogin,
+    error,
+    setError,
+  } = useAppState();
 
   async function loginUserByEmail(event) {
     event.preventDefault();
+    setError({ error: false });
 
     if (email === "" || password === "") {
-      return;
+      return setError({ error: true, msg: "Input field value is missing" });
     }
 
     try {
       await loginUser(email, password);
       navigate("/todos");
     } catch (err) {
-      console.log(err.message);
+      setError({ error: true, msg: err.message });
     }
   }
 
@@ -39,6 +51,7 @@ function Login() {
   }, []);
 
   async function googleAuthLogin() {
+    setError({ error: false, msg: "" });
     try {
       await googleUserLogin();
       navigate("/todos");
@@ -58,6 +71,19 @@ function Login() {
   return (
     <>
       <div className="section login_section">
+        {error?.msg && (
+          <div className="button message">
+            <MdErrorOutline size={25} color="var(--link-color)" />
+            <p>{error?.msg}</p>
+            <button
+              onClick={() => setError({ error: false })}
+              className="alert"
+            >
+              <AiFillCloseCircle color="var(--yellow-color)" size={25} />
+            </button>
+          </div>
+        )}
+
         <div className="cards login_card">
           <h1 className="title">Login to Todos</h1>
           <form onSubmit={loginUserByEmail} className="form">
@@ -96,23 +122,23 @@ function Login() {
               <hr />
               OR <hr />
             </div>
-            <div className="social grid">
-              <button onClick={googleAuthLogin} className="social_media button">
-                <FcGoogle size={30} />
-              </button>
-              <button className="social_media button">
-                <AiOutlinePhone size={30} />
-              </button>
-              <button onClick={twitterLogin} className="social_media button">
-                <AiFillTwitterCircle size={30} />
-              </button>
-            </div>
-            <div className="register">
-              <p>
-                Don't have an account? <Link to="/register">Register</Link>
-              </p>
-            </div>
           </form>
+          <div className="social grid">
+            <button onClick={googleAuthLogin} className="social_media button">
+              <FcGoogle size={30} />
+            </button>
+            <Link to="/phlogin" className="social_media button">
+              <AiOutlinePhone size={30} />
+            </Link>
+            <button onClick={twitterLogin} className="social_media button">
+              <AiFillTwitterCircle size={30} />
+            </button>
+          </div>
+          <div className="register">
+            <p>
+              Don't have an account? <Link to="/register">Register</Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
