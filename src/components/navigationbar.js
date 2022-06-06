@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/img/logo.svg";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAppState } from "../context/AppState";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../backend/firebase.config";
 
 function Navigationbar() {
+  const { signOutUser } = useAppState();
+  const [loginBtn, setLoginBtn] = useState(true);
+  const navigate = useNavigate();
+  const userLogout = async () => {
+    try {
+      await signOutUser();
+      navigate("/login");
+    } catch (err) {
+      console.log(err.code);
+    }
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        setLoginBtn(true);
+      } else if (currentUser) {
+        setLoginBtn(false);
+      }
+    });
+  }, []);
+
   return (
     <>
       <nav className="navbar">
@@ -26,7 +51,15 @@ function Navigationbar() {
             <a href="#">About us</a>
           </li>
         </ul>
-        <div>&nbsp;</div>
+        {loginBtn ? (
+          <Link to={"/login"} className="nav_login">
+            Login
+          </Link>
+        ) : (
+          <button className="nav_login" onClick={userLogout}>
+            Logout
+          </button>
+        )}
       </nav>
     </>
   );

@@ -265,6 +265,31 @@ li a {
   width: 100px;
 }
 
+.nav_login {
+  background: var(--link-color);
+  height: 40px;
+  width: 120px;
+  border: none;
+  box-shadow: var(--box-shadow);
+  border-radius: 30px;
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.nav_login:hover {
+  margin-top: 10px;
+}
+
 /*=== === === Home section === === ===*/
 .home_section {
   grid-template-columns: repeat(2, 1fr);
@@ -537,3 +562,51 @@ textarea {
 }
 
 /*=== === === Todos Section === === */
+.todos_section .form_label {
+  position: absolute;
+  left: 380px;
+}
+
+.add_btn {
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 380px;
+  top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.btn_2 {
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 460px;
+  top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.btn_3 {
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 420px;
+  top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.addTask_section .title {
+  display: inline-flex;
+  position: relative;
+  left: 350px;
+}
+
+.addTask_section .form_input {
+  box-shadow: var(--box-shadow);
+}

@@ -36,7 +36,10 @@ function Login() {
       await loginUser(email, password);
       navigate("/todos");
     } catch (err) {
-      setError({ error: true, msg: err.message });
+      if (err.code === "auth/wrong-password")
+        setError({ error: true, msg: "Wrong password" });
+      if (err.code === "auth/user-not-found")
+        setError({ error: true, msg: "User not found" });
     }
   }
 
@@ -71,18 +74,6 @@ function Login() {
   return (
     <>
       <div className="section login_section">
-        {error?.msg && (
-          <div className="button message">
-            <MdErrorOutline size={25} color="var(--link-color)" />
-            <p>{error?.msg}</p>
-            <button
-              onClick={() => setError({ error: false })}
-              className="alert"
-            >
-              <AiFillCloseCircle color="var(--yellow-color)" size={25} />
-            </button>
-          </div>
-        )}
 
         <div className="cards login_card">
           <h1 className="title">Login to Todos</h1>
